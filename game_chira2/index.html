@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Tetris Game</title> 
+    <link rel="stylesheet" href="style.css"> 
+</head> 
+<body> 
+
+    <div class="game-container"> 
+        <div class="action-controls"> 
+            <button onclick="mulaiGame()">Game Baru</button> 
+            <button onclick="toggleJeda()">Jeda</button> 
+        </div> 
+
+        <div class="game-board"> 
+            <canvas id="gameCanvas" width="200" height="400"></canvas> 
+            <canvas id="gridCanvas" class="grid-overlay" width="200" height="400"></canvas> 
+            
+            <div class="game-over" id="gameOver"> 
+                <h2>GAME OVER</h2> 
+                <p>Skor Akhir: <span id="finalScore"></span> | Baris: <span id="finalLines"></span></p> 
+                <p id="newHighSore" style="color: #ffff00; font-weight: bold; display: none;">🏆 REKOR BARU!</p> 
+                <button onclick="mulaiGame()">Main Lagi</button> 
+            </div> 
+            
+            <div class="pause-screen" id="pauseScreen" onclick="toggleJeda()"> 
+                <h2>JEDA</h2> 
+                <p>Klik di sini untuk lanjut</p> 
+            </div> 
+        </div> 
+
+        <div class="game-info"> 
+            <div class="mobile-controls"> 
+                <button id="btnLeft" ontouchstart="handleTouchStart(this, -1, 0)" ontouchend="handleTouchEnd()">◀️</button> 
+                <button id="btnRotate" ontouchstart="handleRotationTouch()" ontouchend="handleTouchEnd()">🔄</button> 
+                <button id="btnDrop" onclick="jatuhkanLangsung()">👇</button> 
+                <button id="btnRight" ontouchstart="handleTouchStart(this, 1, 0)" ontouchend="handleTouchEnd()">▶️</button> 
+            </div> 
+            
+            <div class="info-panel controls"> 
+                <strong>S / Panah Bawah</strong> - Jatuh Pelan <br> 
+                <button id="btnDown" ontouchstart="handleTouchStart(this, 0, 1, true)" ontouchend="handleTouchEnd()">⬇️ JATUH PELAN</button> 
+            </div> 
+        </div> 
+    </div> 
+    <script src="javascript.js"></script> 
+</body>
+</html>
