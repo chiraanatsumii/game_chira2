@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Layout Utama Game */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+}
+
+/* Tombol Aksi di Atas Papan */
+.action-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+}
+
+.game-board {
+    position: relative;
+}
+
+#gameCanvas {
+    border: 4px solid #004d4f;
+    border-radius: 8px;
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.25);
+    background-color: #0d122b;
+}
+
+.grid-overlay {
+    position: absolute;
+    top: 4px; 
+    left: 4px;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.game-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 200px;
+    align-items: center;
+}
+
+.info-panel {
+    background: rgba(26, 26, 46, 0.9);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #555;
+    width: 100%;
+    text-align: center;
+}
+
+.controls {
+    font-size: 11px;
+    line-height: 1.5;
+    color: #aaa;
+}
+
+/* Tampilan Kalah */
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(20, 20, 35, 0.95);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: #ff3333;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #ff3333;
+    width: 85%;
+    z-index: 60;
+}
+
+.game-over h2 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+/* Desain Tombol Utama */
+button {
+    background: linear-gradient(45deg, #179ca1, #0099cc);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #0099cc, #006699);
+    box-shadow: 0 4px 12px rgba(0, 212, 255, 0.4);
+}
+
+/* Layar Jeda Interaktif */
+.pause-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(26, 26, 46, 0.95);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    display: none;
+    flex-direction: column;
+    border: 2px solid #0099cc;
+    width: 80%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 50;
+}
+
+.pause-screen:hover {
+    background: rgba(0, 153, 204, 0.2);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+}
+
+.pause-screen h2 {
+    color: #0099cc;
+    margin-bottom: 5px;
+}
+
+/* Kontrol Sentuh HP */
+.mobile-controls {
+    display: none;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.mobile-controls button {
+    font-size: 18px;
+    padding: 0;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #004d4f;
+    border: 1px solid #0099cc;
+    color: white;
+    touch-action: manipulation;
+}
+
+@media (max-width: 768px) {
+    .mobile-controls {
+        display: flex; 
+    }
+    .controls {
+        display: none; 
+    }
+}
